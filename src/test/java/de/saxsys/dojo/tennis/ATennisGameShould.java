@@ -8,29 +8,27 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class ATennisGameShould {
 
-	
 	private TennisGame tennisGame;
 
 	@Before
-	public void init()	{
+	public void init() {
 		tennisGame = new TennisGame();
-		
+
 	}
+
 	@Test
-	public void returnLoveAll(){
+	public void returnLoveAll() {
 		assertTrue(tennisGame.getScore().equals("LoveAll"));
-		
+
 	}
-	
+
 	@Test
 	public void return15Love() throws Exception {
 		tennisGame.addPointForPlayerOne();
 		assertThat(tennisGame.getScore(), is("Fifteen Love"));
 	}
-	
 
 	@Test
 	public void return30Love() throws Exception {
@@ -39,5 +37,13 @@ public class ATennisGameShould {
 
 		assertThat(tennisGame.getScore(), is("Thirty Love"));
 	}
-	
+	@Test
+	public void return40Love() throws Exception {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		
+		assertThat(tennisGame.getScore(), is("Fourty Love"));
+	}
+
 }
