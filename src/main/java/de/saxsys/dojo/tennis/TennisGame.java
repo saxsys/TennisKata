@@ -7,16 +7,10 @@ public class TennisGame {
 	static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
-		if (player2 == 1) {
-			return "Love Fifteen";
-		}
-		if (player2 == 2) {
-			return "Love Thirty";
-		}
-		if (player1 == 0) {
+		if (player1 == 0 && player2 == 0) {
 			return "LoveAll";
 		}
-		return SCORES[player1] + " Love";
+		return SCORES[player1] + " " + SCORES[player2];
 	}
 
 	public void addPointForPlayerOne() {
