@@ -7,6 +7,8 @@ public class TennisGame {
 	public String getScore() {
 
 		switch (player1) {
+		case -1:
+			return "Love Fifteen";
 		case 1:
 			return "Fifteen Love";
 		case 2:
@@ -21,6 +23,11 @@ public class TennisGame {
 	public void addPointForPlayerOne() {
 		player1++;
 
+	}
+
+	public void addPointForPlayerTwo() {
+		player1=-1;
+		
 	}
 
 }
