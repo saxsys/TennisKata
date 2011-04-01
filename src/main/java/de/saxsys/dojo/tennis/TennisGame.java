@@ -6,16 +6,16 @@ public class TennisGame {
 
 	public String getScore() {
 
-		if (player1 == 1) {
+		switch (player1) {
+		case 1:
 			return "Fifteen Love";
-		}
-		if (player1 == 2) {
+		case 2:
 			return "Thirty Love";
-		}
-		if (player1 == 3) {
+		case 3:
 			return "Fourty Love";
+		default:
+			return "LoveAll";
 		}
-		return "LoveAll";
 	}
 
 	public void addPointForPlayerOne() {
