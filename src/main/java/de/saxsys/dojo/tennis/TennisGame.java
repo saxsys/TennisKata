@@ -3,21 +3,17 @@ package de.saxsys.dojo.tennis;
 public class TennisGame {
 
 	int player1 = 0;
+	static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
 		if (player1 == -1) {
 			return "Love Fifteen";
 		}
-		switch (player1) {
-		case 1:
-			return "Fifteen Love";
-		case 2:
-			return "Thirty Love";
-		case 3:
-			return "Fourty Love";
-		default:
+		if (player1 == 0) {
 			return "LoveAll";
 		}
+		return SCORES[player1] + " Love";
+
 	}
 
 	public void addPointForPlayerOne() {
