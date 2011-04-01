@@ -3,10 +3,11 @@ package de.saxsys.dojo.tennis;
 public class TennisGame {
 
 	int player1 = 0;
+	private int player2 = 0;
 	static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
-		if (player1 == -1) {
+		if (player2 == 1) {
 			return "Love Fifteen";
 		}
 		if (player1 == 0) {
@@ -22,7 +23,7 @@ public class TennisGame {
 	}
 
 	public void addPointForPlayerTwo() {
-		player1 = -1;
+		player2 =1;
 
 	}
 
