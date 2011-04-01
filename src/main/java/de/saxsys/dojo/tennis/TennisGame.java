@@ -7,8 +7,9 @@ public class TennisGame {
 	static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
-		if (player1 == 0 && player2 == 0) {
-			return "LoveAll";
+		
+		if(player1 == player2) {
+			return SCORES[player1] + " All";
 		}
 		return SCORES[player1] + " " + SCORES[player2];
 	}

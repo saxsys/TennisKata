@@ -19,7 +19,7 @@ public class ATennisGameShould {
 
 	@Test
 	public void returnLoveAll() {
-		assertTrue(tennisGame.getScore().equals("LoveAll"));
+		assertTrue(tennisGame.getScore().equals("Love All"));
 
 	}
 
@@ -56,5 +56,15 @@ public class ATennisGameShould {
 		tennisGame.addPointForPlayerTwo();
 		tennisGame.addPointForPlayerTwo();
 		assertThat(tennisGame.getScore(), is("Love Thirty"));
+	}
+	
+	@Test
+	public void returnThirtyAll() throws Exception {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerTwo();
+		
+		assertThat(tennisGame.getScore(), is("Thirty All"));
 	}
 }
