@@ -10,11 +10,13 @@ public class TennisGame {
 		if (player2 == 1) {
 			return "Love Fifteen";
 		}
+		if (player2 == 2) {
+			return "Love Thirty";
+		}
 		if (player1 == 0) {
 			return "LoveAll";
 		}
 		return SCORES[player1] + " Love";
-
 	}
 
 	public void addPointForPlayerOne() {
@@ -23,7 +25,7 @@ public class TennisGame {
 	}
 
 	public void addPointForPlayerTwo() {
-		player2 =1;
+		player2++;
 
 	}
 
