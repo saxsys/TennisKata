@@ -5,25 +5,39 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 import org.hamcrest.CoreMatchers;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class ATennisGameShould {
 
+	
+	private TennisGame tennisGame;
+
+	@Before
+	public void init()	{
+		tennisGame = new TennisGame();
+		
+	}
 	@Test
 	public void returnLoveAll(){
-		TennisGame tennisGame = new TennisGame();
 		assertTrue(tennisGame.getScore().equals("LoveAll"));
 		
 	}
 	
 	@Test
 	public void return15Love() throws Exception {
-		TennisGame tennisGame = new TennisGame();
 		tennisGame.addPointForPlayerOne();
-		
 		assertThat(tennisGame.getScore(), is("Fifteen Love"));
 	}
 	
+
+	@Test
+	public void return30Love() throws Exception {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+
+		assertThat(tennisGame.getScore(), is("Thirty Love"));
+	}
 	
 }
