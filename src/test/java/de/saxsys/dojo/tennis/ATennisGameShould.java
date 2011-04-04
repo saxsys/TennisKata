@@ -104,4 +104,13 @@ public class ATennisGameShould {
         tennisGame.addPointForPlayerTwo();
         assertThat(tennisGame.getScore(), is("Deuce"));
     }
+
+    @Test
+    public void returnDeuceForManyMany() throws Exception {
+        for (int i = 0; i < 7; i++) {
+            tennisGame.addPointForPlayerOne();
+            tennisGame.addPointForPlayerTwo();
+        }
+        assertThat(tennisGame.getScore(), is("Deuce"));
+    }
 }
