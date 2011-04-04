@@ -20,13 +20,15 @@ public class TennisGame {
         if (player1 == player2) {
             return "Deuce";
         }
-        if (player1 > player2) {
-            if (1 < (player1 - player2)) {
-                return "Player 1 wins";
-            }
-            return "Advantage Player 1";
+        final int diff = Math.abs(player2 - player1);
+        String result = "Player 1 wins";
+        if (1 == diff) {
+            result = "Advantage Player 1";
         }
-        return "Player 2 wins";
+        if (player2 > player1) {
+            result = result.replace('1', '2');
+        }
+        return result;
     }
 
     private String getScoreForSimpleCounting() {
