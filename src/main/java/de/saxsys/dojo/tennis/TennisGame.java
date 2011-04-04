@@ -8,6 +8,10 @@ public class TennisGame {
 
     public String getScore() {
 
+        if (4 == player1) {
+            return "Player 1 wins";
+        }
+
         if (player1 == player2) {
             return SCORES[player1] + " All";
         }

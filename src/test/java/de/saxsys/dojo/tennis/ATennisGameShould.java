@@ -33,7 +33,6 @@ public class ATennisGameShould {
     public void return30Love() throws Exception {
         tennisGame.addPointForPlayerOne();
         tennisGame.addPointForPlayerOne();
-
         assertThat(tennisGame.getScore(), is("Thirty Love"));
     }
 
@@ -42,8 +41,16 @@ public class ATennisGameShould {
         tennisGame.addPointForPlayerOne();
         tennisGame.addPointForPlayerOne();
         tennisGame.addPointForPlayerOne();
-
         assertThat(tennisGame.getScore(), is("Fourty Love"));
+    }
+
+    @Test
+    public void returnPlayerOneWins() throws Exception {
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerOne();
+        assertThat(tennisGame.getScore(), is("Player 1 wins"));
     }
 
     @Test
