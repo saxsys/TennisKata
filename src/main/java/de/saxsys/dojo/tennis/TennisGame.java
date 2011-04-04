@@ -8,12 +8,15 @@ public class TennisGame {
 
     public String getScore() {
         if ((4 <= player1) || (4 <= player2)) {
-            return getScoreForFourOrMorePoints();
+            return getScoreForPlayerPointsComparation();
         }
-        return getScoreForEachPlayerLessThanFourPoints();
+        if ((3 == player1) && (3 == player2)) {
+            return getScoreForPlayerPointsComparation();
+        }
+        return getScoreForSimpleCounting();
     }
 
-    private String getScoreForFourOrMorePoints() {
+    private String getScoreForPlayerPointsComparation() {
         if (player1 == player2) {
             return "Deuce";
         }
@@ -23,11 +26,8 @@ public class TennisGame {
         return "Player 2 wins";
     }
 
-    private String getScoreForEachPlayerLessThanFourPoints() {
+    private String getScoreForSimpleCounting() {
         if (player1 == player2) {
-            if (3 == player1) {
-                return "Deuce";
-            }
             return SCORES[player1] + " All";
         }
         return SCORES[player1] + " " + SCORES[player2];
