@@ -21,7 +21,10 @@ public class TennisGame {
             return "Deuce";
         }
         if (player1 > player2) {
-            return "Player 1 wins";
+            if (1 < (player1 - player2)) {
+                return "Player 1 wins";
+            }
+            return "Advantage Player 1";
         }
         return "Player 2 wins";
     }
