@@ -11,6 +11,9 @@ public class TennisGame {
         if (4 == player1) {
             return "Player 1 wins";
         }
+        if (4 == player2) {
+            return "Player 2 wins";
+        }
 
         if (player1 == player2) {
             return SCORES[player1] + " All";

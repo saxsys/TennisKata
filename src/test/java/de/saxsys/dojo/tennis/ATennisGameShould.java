@@ -67,6 +67,15 @@ public class ATennisGameShould {
     }
 
     @Test
+    public void returnPlayerTwoWins() throws Exception {
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerTwo();
+        assertThat(tennisGame.getScore(), is("Player 2 wins"));
+    }
+
+    @Test
     public void returnThirtyAll() throws Exception {
         tennisGame.addPointForPlayerOne();
         tennisGame.addPointForPlayerOne();
