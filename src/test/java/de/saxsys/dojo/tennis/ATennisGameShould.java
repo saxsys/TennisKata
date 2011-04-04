@@ -128,6 +128,19 @@ public class ATennisGameShould {
     }
 
     @Test
+    public void returnAdvantagePlayerTwoFourtyFifty() throws Exception {
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        // now: fourty-fourty == Deuce
+        tennisGame.addPointForPlayerTwo();
+        assertThat(tennisGame.getScore(), is("Advantage Player 2"));
+    }
+
+    @Test
     public void returnPlayerOneWinsForSixtyFourty() throws Exception {
         tennisGame.addPointForPlayerOne();
         tennisGame.addPointForPlayerTwo();
