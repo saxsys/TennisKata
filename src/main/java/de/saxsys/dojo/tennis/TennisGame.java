@@ -14,6 +14,9 @@ public class TennisGame {
     }
 
     private String getScoreForFourOrMorePoints() {
+        if (player1 == player2) {
+            return "Deuce";
+        }
         if (4 == player1) {
             return "Player 1 wins";
         }
@@ -22,6 +25,9 @@ public class TennisGame {
 
     private String getScoreForEachPlayerLessThanFourPoints() {
         if (player1 == player2) {
+            if (3 == player1) {
+                return "Deuce";
+            }
             return SCORES[player1] + " All";
         }
         return SCORES[player1] + " " + SCORES[player2];

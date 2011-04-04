@@ -94,4 +94,14 @@ public class ATennisGameShould {
         assertThat(tennisGame.getScore(), is("Fourty Thirty"));
     }
 
+    @Test
+    public void returnDeuceForFourtyFourty() throws Exception {
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        tennisGame.addPointForPlayerOne();
+        tennisGame.addPointForPlayerTwo();
+        assertThat(tennisGame.getScore(), is("Deuce"));
+    }
 }
