@@ -7,14 +7,20 @@ public class TennisGame {
     private static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
     public String getScore() {
+        if ((4 <= player1) || (4 <= player2)) {
+            return getScoreForFourOrMorePoints();
+        }
+        return getScoreForEachPlayerLessThanFourPoints();
+    }
 
+    private String getScoreForFourOrMorePoints() {
         if (4 == player1) {
             return "Player 1 wins";
         }
-        if (4 == player2) {
-            return "Player 2 wins";
-        }
+        return "Player 2 wins";
+    }
 
+    private String getScoreForEachPlayerLessThanFourPoints() {
         if (player1 == player2) {
             return SCORES[player1] + " All";
         }
