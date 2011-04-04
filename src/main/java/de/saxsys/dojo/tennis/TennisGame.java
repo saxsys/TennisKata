@@ -20,7 +20,7 @@ public class TennisGame {
         if (player1 == player2) {
             return "Deuce";
         }
-        if (4 == player1) {
+        if (player1 > player2) {
             return "Player 1 wins";
         }
         return "Player 2 wins";
