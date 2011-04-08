@@ -101,4 +101,18 @@ public class ATennisGameShould {
 
 		assertThat(tennisGame.getScore(), is("Player One wins"));
 	}
+
+	@Test
+	public void returnDeuceAfterAdvantagePlayer1() throws Exception {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerTwo();
+
+		assertThat(tennisGame.getScore(), is("Deuce"));
+	}
 }
