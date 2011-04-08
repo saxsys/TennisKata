@@ -12,7 +12,7 @@ public class TennisGame {
 			return "Advantage Player One";
 		}
 
-		if (scoreOfPlayer2 == 4 && scoreOfPlayer1 == 3) {
+		if (isAdvantageForPlayerTwo()) {
 			return "Advantage Player Two";
 		}
 
@@ -22,7 +22,7 @@ public class TennisGame {
 		if (isEqualScores()) {
 			return SCORES[scoreOfPlayer1] + " All";
 		}
-		if (scoreOfPlayer1 >= 4) {
+		if (isPlayerOneWinner()) {
 			return "Player One wins";
 		}
 		return SCORES[scoreOfPlayer1] + " " + SCORES[scoreOfPlayer2];
@@ -34,6 +34,14 @@ public class TennisGame {
 
 	public void addPointForPlayerTwo() {
 		scoreOfPlayer2++;
+	}
+
+	private boolean isAdvantageForPlayerTwo() {
+		return scoreOfPlayer2 == 4 && scoreOfPlayer1 == 3;
+	}
+
+	private boolean isPlayerOneWinner() {
+		return scoreOfPlayer1 >= 4;
 	}
 
 	private boolean isEqualScores() {

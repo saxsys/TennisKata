@@ -113,12 +113,8 @@ public class ATennisGameShould {
 	}
 
 	private void createSimpleDeuce() {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();// Deuce
+		addPointsToPlayerOne(3);
+		addPointsToPlayerTwo(3);
 	}
 
 	private void addPointsToPlayerOne(int points) {
