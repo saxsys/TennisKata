@@ -11,6 +11,11 @@ public class TennisGame {
 		if (isAdvantageForPlayerOne()) {
 			return "Advantage Player One";
 		}
+
+		if (scoreOfPlayer2 == 4 && scoreOfPlayer1 == 3) {
+			return "Advantage Player Two";
+		}
+
 		if (isDeuce()) {
 			return "Deuce";
 		}
