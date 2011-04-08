@@ -2,28 +2,30 @@ package de.saxsys.dojo.tennis;
 
 public class TennisGame {
 
-	int player1 = 0;
-	private int player2 = 0;
-	static String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
+	private int scoreOfPlayer1 = 0;
+	private int scoreOfPlayer2 = 0;
+	private static final String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
-		if (player1 == 3 && player2 == 3) {
+		
+		if (isDeuce()) {
 			return "Deuce";
 		}
-		if(player1 == player2) {
-			return SCORES[player1] + " All";
+		if(scoreOfPlayer1 == scoreOfPlayer2) {
+			return SCORES[scoreOfPlayer1] + " All";
 		}
-		return SCORES[player1] + " " + SCORES[player2];
+		return SCORES[scoreOfPlayer1] + " " + SCORES[scoreOfPlayer2];
 	}
 
 	public void addPointForPlayerOne() {
-		player1++;
-
+		scoreOfPlayer1++;
 	}
 
 	public void addPointForPlayerTwo() {
-		player2++;
-
+		scoreOfPlayer2++;
 	}
-
+	
+	private boolean isDeuce() {
+		return scoreOfPlayer1 == 3 && scoreOfPlayer2 == 3;
+	}
 }
