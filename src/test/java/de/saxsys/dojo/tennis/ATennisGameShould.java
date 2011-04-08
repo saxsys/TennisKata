@@ -54,39 +54,26 @@ public class ATennisGameShould {
 
 	@Test
 	public void returnLove30() throws Exception {
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+		addPointsToPlayerTwo(2);
 		assertThat(tennisGame.getScore(), is("Love Thirty"));
 	}
 
 	@Test
 	public void returnThirtyAll() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+		addPointsToPlayerOne(2);
+		addPointsToPlayerTwo(2);
 		assertThat(tennisGame.getScore(), is("Thirty All"));
 	}
 
 	@Test
 	public void returnDeuceIfBothPlayersScore3Times() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+		createSimpleDeuce();
 		assertThat(tennisGame.getScore(), is("Deuce"));
 	}
 
 	@Test
 	public void returnAdvantagePlayer1() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+		createSimpleDeuce();
 		tennisGame.addPointForPlayerOne();
 
 		assertThat(tennisGame.getScore(), is("Advantage Player One"));
@@ -94,22 +81,14 @@ public class ATennisGameShould {
 
 	@Test
 	public void returnPlayerOneWinsIfPlayerOneScores4Times() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
+		addPointsToPlayerOne(4);
 
 		assertThat(tennisGame.getScore(), is("Player One wins"));
 	}
 
 	@Test
 	public void returnDeuceAfterAdvantagePlayer1() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+		createSimpleDeuce();
 		tennisGame.addPointForPlayerOne();
 		tennisGame.addPointForPlayerTwo();
 
@@ -118,29 +97,37 @@ public class ATennisGameShould {
 
 	@Test
 	public void returnPlayer1WinsAfterDeuce() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();// Deuce
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
+		createSimpleDeuce();
+		addPointsToPlayerOne(2);
 
 		assertThat(tennisGame.getScore(), is("Player One wins"));
 	}
 
 	@Test
 	public void returnAdvantagePlayer2() throws Exception {
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerOne();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
-		tennisGame.addPointForPlayerTwo();
+
+		createSimpleDeuce();
 		tennisGame.addPointForPlayerTwo();
 
 		assertThat(tennisGame.getScore(), is("Advantage Player Two"));
 	}
 
+	private void createSimpleDeuce() {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerTwo();
+		tennisGame.addPointForPlayerTwo();// Deuce
+	}
+
+	private void addPointsToPlayerOne(int points) {
+		for (int i = 0; i < points; i++)
+			tennisGame.addPointForPlayerOne();
+	}
+
+	private void addPointsToPlayerTwo(int points) {
+		for (int i = 0; i < points; i++)
+			tennisGame.addPointForPlayerTwo();
+	}
 }
