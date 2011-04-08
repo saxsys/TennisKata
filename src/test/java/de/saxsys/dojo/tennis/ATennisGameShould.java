@@ -1,7 +1,6 @@
 package de.saxsys.dojo.tennis;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -89,7 +88,17 @@ public class ATennisGameShould {
 		tennisGame.addPointForPlayerTwo();
 		tennisGame.addPointForPlayerTwo();
 		tennisGame.addPointForPlayerOne();
-		
+
 		assertThat(tennisGame.getScore(), is("Advantage Player One"));
+	}
+
+	@Test
+	public void returnPlayerOneWinsIfPlayerOneScores4Times() throws Exception {
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+		tennisGame.addPointForPlayerOne();
+
+		assertThat(tennisGame.getScore(), is("Player One wins"));
 	}
 }
