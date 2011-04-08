@@ -7,13 +7,13 @@ public class TennisGame {
 	private static final String[] SCORES = { "Love", "Fifteen", "Thirty", "Fourty" };
 
 	public String getScore() {
-	if(scoreOfPlayer1 == 4 && scoreOfPlayer2 == 3){
-		return "Advantage Player One";
-	}
+		if (isAdvantageForPlayerOne()) {
+			return "Advantage Player One";
+		}
 		if (isDeuce()) {
 			return "Deuce";
 		}
-		if(scoreOfPlayer1 == scoreOfPlayer2) {
+		if (isEqualScores()) {
 			return SCORES[scoreOfPlayer1] + " All";
 		}
 		return SCORES[scoreOfPlayer1] + " " + SCORES[scoreOfPlayer2];
@@ -22,9 +22,17 @@ public class TennisGame {
 	public void addPointForPlayerOne() {
 		scoreOfPlayer1++;
 	}
-
+	
 	public void addPointForPlayerTwo() {
 		scoreOfPlayer2++;
+	}
+	
+	private boolean isEqualScores() {
+		return scoreOfPlayer1 == scoreOfPlayer2;
+	}
+
+	private boolean isAdvantageForPlayerOne() {
+		return scoreOfPlayer1 == 4 && scoreOfPlayer2 == 3;
 	}
 	
 	private boolean isDeuce() {
