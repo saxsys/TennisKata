@@ -40,6 +40,6 @@ public class TennisGame {
 	}
 
 	private boolean isDeuce() {
-		return (scoreOfPlayer1 == scoreOfPlayer2) && scoreOfPlayer1 >= 3;
+		return (scoreOfPlayer1 == scoreOfPlayer2) && (scoreOfPlayer1 >= 3);
 	}
 }
